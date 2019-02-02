@@ -1,0 +1,164 @@
+
+.logo {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  --angle: 360deg;
+  --offset: 500px;
+  animation-duration: 1s;
+  animation-name: scale;
+  animation-timing-function: cubic-bezier(0.38, 0.99, 0.58, 1);
+  overflow: visible;
+}
+
+.logo::after{
+  content: "";
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  background: radial-gradient(circle, rgba(255,255,255,0) 49%, rgba(255,255,255,1) 49%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 50%);
+  animation: 2s ripple cubic-bezier(0.19, 1, 0.22, 1) 1.5s;
+  overflow: visible;
+}
+
+@keyframes ripple {
+  from {
+      visibility: visible;
+      transform: scale(0);
+      opacity: 1;
+  }
+  to {
+      visibility: visible;
+      transform: scale(10);
+      opacity: 0;
+  }
+}
+
+
+.logo-top-container,
+.logo-left-container,
+.logo-right-container,
+.logo-bottom-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0.28,-0.19, 1, 0.11)
+}
+
+.logo-top-container {
+  animation-name: top;
+}
+
+.logo-left-container{
+  animation-name: left;
+}
+
+.logo-right-container{
+  animation-name: right;
+}
+
+.logo-bottom-container{
+  animation-name: bottom;
+}
+
+@keyframes scale {
+  from {
+      transform: scale(0);
+  }
+  to {
+      transform: none;
+  }
+}
+
+@keyframes top {
+  from {
+      transform: rotateZ(var(--angle)) translateY(calc(-1 * var(--offset))) scale(0)
+  }
+  to {
+      transform: none;
+  }
+}
+
+@keyframes left {
+  from {
+      transform: rotateZ(var(--angle)) translateX(var(--offset)) scale(0)
+  }
+  to {
+      transform: none;
+  }
+}
+
+@keyframes right {
+  from {
+      transform: rotateZ(var(--angle)) translateX(calc(-1 * var(--offset))) scale(0)
+  }
+  to {
+      transform: none;
+  }
+}
+
+@keyframes bottom {
+  from {
+      transform: rotateZ(var(--angle)) translateY(var(--offset)) scale(0)
+  }
+  to {
+      transform: none;
+  }
+}
+
+.logo-top {
+  position: absolute;
+  top: -75px;
+  left: 45px;
+  height: 0;
+  width: 0;
+  border: 75px solid #FFFFFF;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  transform: scaleY(calc(2.88 / 5));
+}
+
+.logo-left {
+  position: absolute;
+  top: 30px;
+  left: 45px;
+  height: 0;
+  width: 0;
+  border: 90px solid #FFFFFF;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: scaleY(calc(8 / 12));
+}
+
+.logo-right {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  height: 0;
+  width: 0;
+  border: 90px solid #FFFFFF;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  transform: scaleY(calc(8 / 12));
+}
+
+.logo-bottom {
+  position: absolute;
+  top: 165px;
+  left: 45px;
+  height: 0;
+  width: 0;
+  border: 75px solid #FFFFFF;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  transform: scaleY(calc(2.88 / 5));
+}
